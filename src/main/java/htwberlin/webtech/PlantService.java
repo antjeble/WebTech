@@ -1,5 +1,6 @@
 package htwberlin.webtech;
 
+import htwberlin.webtech.web.api.Plant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +12,8 @@ public class PlantService {
 
     @Autowired
     PlantRepository repo;
-
     public Plant save(Plant plant) {
+        plant = new Plant(plant.getName(), plant.getDuration());
         return repo.save(plant);
     }
 

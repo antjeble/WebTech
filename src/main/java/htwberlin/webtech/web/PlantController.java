@@ -1,6 +1,6 @@
 package htwberlin.webtech.web;
 
-import htwberlin.webtech.Plant;
+import htwberlin.webtech.web.api.Plant;
 import htwberlin.webtech.PlantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

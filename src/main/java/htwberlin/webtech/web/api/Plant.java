@@ -1,18 +1,24 @@
-package htwberlin.webtech;
+package htwberlin.webtech.web.api;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Plant {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String duration;
 
 
-    public Plant() {
+    protected Plant() {
+    }
+
+    public Plant(String name, String duration) {
         this.name = name;
         this.duration = duration;
     }

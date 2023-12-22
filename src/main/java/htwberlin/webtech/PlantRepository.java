@@ -1,7 +1,7 @@
 package htwberlin.webtech;
 
+import htwberlin.webtech.web.api.Plant;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
 public interface PlantRepository extends CrudRepository<Plant, Long> {
 }
