@@ -17,16 +17,21 @@ public class PlantController {
 
     Logger logger = LoggerFactory.getLogger(PlantController.class);
 
+    @CrossOrigin
     @PostMapping("/plants")
     public Plant createPlant(@RequestBody Plant plant) {
         return service.save(plant);
     }
+
+    @CrossOrigin
     @GetMapping("/plants/{id}")
     public Plant getPlant(@PathVariable String id) {
         logger.info("GET request on route things with {}", id);
         Long plantId = Long.parseLong(id);
         return service.get(plantId);
     }
+
+    @CrossOrigin
     @GetMapping("/plants")
     public List<Plant> getAllPlants() {
         return service.getAll();
