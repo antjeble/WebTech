@@ -36,4 +36,10 @@ public class PlantController {
     public List<Plant> getAllPlants() {
         return service.getAll();
     }
+
+    @CrossOrigin
+    @DeleteMapping("/plants/{id}")
+    public void deletePlant(@PathVariable Long id){
+        service.delete(id);
+    }
 }

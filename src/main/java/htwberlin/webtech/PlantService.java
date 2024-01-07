@@ -27,4 +27,7 @@ public class PlantService {
         for (Plant thing : iterator)  things.add(thing);
         return things;
     }
+
+    public void delete(Long id) {
+    }
 }
