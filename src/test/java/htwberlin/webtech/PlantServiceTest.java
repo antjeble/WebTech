@@ -25,8 +25,8 @@ public class PlantServiceTest {
     @Test
     @DisplayName("should find a plant by id")
     void testGet(){
-        var p1 = new Plant("Test", "3");
-        var p2 = new Plant("Test2", "4");
+        var p1 = new Plant("Test", "3", true);
+        var p2 = new Plant("Test2", "4", false);
         doReturn(Optional.of(p1)).when(repository).findById(27L);
         doReturn(Optional.of(p2)).when(repository).findById(28L);
 

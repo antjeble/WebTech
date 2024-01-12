@@ -42,4 +42,10 @@ public class PlantController {
     public void deletePlant(@PathVariable Long id){
         service.delete(id);
     }
+
+    @CrossOrigin
+    @PutMapping("/plants/{id}")
+    public Plant updatePlant(@PathVariable Long id, @RequestBody Plant plant){
+        return service.update(id, plant);
+    }
 }

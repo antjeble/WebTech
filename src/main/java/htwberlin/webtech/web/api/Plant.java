@@ -13,14 +13,16 @@ public class Plant {
     private Long id;
     private String name;
     private String duration;
+    private boolean watered;
 
 
     protected Plant() {
     }
 
-    public Plant(String name, String duration) {
+    public Plant(String name, String duration, boolean watered) {
         this.name = name;
         this.duration = duration;
+        this.watered = watered;
     }
 
     public Long getId() {
@@ -44,6 +46,9 @@ public class Plant {
         this.duration = duration;
     }
 
+    public boolean getWatered() {return watered;}
+    public void setWatered(boolean watered) {this.watered = watered;}
+
     @Override
     public String toString() {
         return "Plant{" +
@@ -51,5 +56,23 @@ public class Plant {
                 ", name='" + name + '\'' +
                 ", duration='" + duration + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals (Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Plant plant)) return false;
+
+        if(getDuration() != plant.getDuration()) return false;
+        if(getId() != null ? !getId().equals(plant.getId()) : plant.getId() != null) return false;
+        return getName() != null ? getName().equals(plant.getName()) : plant.getName() == null;
+    }
+
+    @Override
+    public int hashCode(){
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getName() !=null ? getName().hashCode() : 0);
+        result = Integer.parseInt(31 * result + getDuration());
+        return result;
     }
 }

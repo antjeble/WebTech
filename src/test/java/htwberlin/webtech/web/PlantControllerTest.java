@@ -27,12 +27,12 @@ public class PlantControllerTest {
     @Test
     public void testGetRoute() throws Exception {
         //Test Daten und Service Mock
-        Plant p1 = new Plant("Rose", "3");
+        Plant p1 = new Plant("Rose", "3", true);
         p1.setId(42L);
         when(service.get(42L)).thenReturn(p1);
 
         //Erwartetes Ergebnis
-        String expected = "{\"id\":42,\"name\":\"Rose\",\"duration\":\"3\"}";
+        String expected = "{\"id\":42,\"name\":\"Rose\",\"duration\":\"3\",\"watered\":true}";
 
         //Aufruf und Vergleich
         this.mockMvc.perform(get("/plants/42"))
