@@ -20,6 +20,9 @@ public class PlantController {
     @CrossOrigin
     @PostMapping("/plants")
     public Plant createPlant(@RequestBody Plant plant) {
+        if (plant == null || plant.getName() == null || plant.getDuration() == null) {
+            throw new IllegalArgumentException("Plant must have a name and a duration");
+        }
         return service.save(plant);
     }
 
